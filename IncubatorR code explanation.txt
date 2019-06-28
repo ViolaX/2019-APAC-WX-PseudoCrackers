@@ -1,0 +1,10 @@
+we have semi-structured train data and test data.(94 fields)
+Preprocess: train and test data need to be regex classified.
+            for example: 235URI_ufg90 will into 1A_a1.
+            and so on so for other fields that need to be processed and classified.
+            and we treat missing data in text col as "unknown" category, missing data in integer col as "-1" categor to differentiate.
+            and then we sum up all levels (categories) in both train and test data to get full levels mapping.
+Modelling: svm (support vector machine) and svm with tuning is performed on train data, since svm is cutting planes into 2.In this case, it is reponse variable 0/1, good candidate of svm model.
+           we can also implement logistic with bagging, random forest, decision tree models, these are 0/1 models as well. since we don't have much time, svm is only performed.
+           svm choose a tuning range, then code will find the best model upon comparing all results in the tuning range.
+Testing: test data on test data set and find accuray rate.
